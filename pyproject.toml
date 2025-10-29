@@ -17,8 +17,8 @@ classifiers = [
 include = ["flatpak_cargo_generator/script.py"]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
-aiohttp = "^3.9.5"
+python = ">=3.9"
+aiohttp = "^3.12"
 toml = "^0.10.2"
 
 [tool.poetry.scripts]
