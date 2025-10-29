@@ -1,3 +1,6 @@
+[project]
+name = "flatpak-cargo-generator"
+
 [tool.poetry]
 name = "flatpak-cargo-generator"
 version = "0.1.0"
