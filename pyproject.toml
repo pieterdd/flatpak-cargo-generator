@@ -14,7 +14,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: Unix",
 ]
-include = ["flatpak_cargo_generator/script.py"]
+include = [
+    { path = "flatpak_cargo_generator/*.py", format = ["sdist", "wheel"] },
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9"
