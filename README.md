@@ -35,5 +35,5 @@ poetry build
 ```
 
 
-# AI disclosure
+## AI disclosure
 No AI tools are involved in maintaining this distribution. As for the script itself, you'll need to ask the Flathub team.
