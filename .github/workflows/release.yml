@@ -1,0 +1,44 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  release-build:
+    runs-on: ubuntu-26.04
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+
+      - name: Build release
+        run: |
+          pipx install poetry
+          ./build.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: release
+          path: dist/
+
+  pypi-publish:
+    runs-on: ubuntu-26.04
+    needs:
+      - release-build
+    permissions:
+      id-token: write
+    environment:
+      name: pypi
+      url: https://pypi.org/p/flatpak-cargo-generator
+
+    steps:
+      - name: Retrieve release distributions
+        uses: actions/download-artifact@v8
+        with:
+          name: release
+          path: dist/
+
+      - name: Publish release distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
