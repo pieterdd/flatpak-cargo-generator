@@ -21,7 +21,7 @@ include = [
 [tool.poetry.dependencies]
 python = ">=3.10"
 aiohttp = "^3.12"
-toml = "^0.10.2"
+tomlkit = "^0.15.2"
 
 [tool.poetry.scripts]
 flatpak-cargo-generator = "flatpak_cargo_generator.script:main"
